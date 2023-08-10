@@ -24,7 +24,7 @@ router.post("/translate", async (req, res) => {
 
   async function translateFunction(content, language) {
     const languageList = language.join(", ");
-    const initPrompt = `Translate the sentence "${content}" to ${languageList}. Please provide the translations in a list format.`;
+    const initPrompt = `Translate the sentence "${content}" to ${languageList}.Try to provide the pronunciation. Please provide the translations in a list format.`;
 
     const completeTranslation = await openai.createCompletion({
       model: "text-davinci-003",

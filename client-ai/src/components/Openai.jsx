@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import { ClipLoader } from "react-spinners";
+
 function formatTranslatedText(text) {
   const lines = text.split("\n"); // Split by newline to handle multi-line responses
   const formattedLines = lines.map((line) => {
@@ -23,6 +25,7 @@ export default function Openai() {
   const [content, setContent] = useState("");
   const [translatedText, setTranslatedText] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchLanguages = async () => {
@@ -39,6 +42,7 @@ export default function Openai() {
   }, []);
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.post("http://localhost:5000/translate", {
         content,
@@ -48,6 +52,7 @@ export default function Openai() {
     } catch (err) {
       console.error("Error during translation: ", err.message);
     }
+    setIsLoading(false);
   };
 
   const handleLanguageChange = (e) => {
@@ -83,7 +88,9 @@ export default function Openai() {
       />
       <br />
 
-      <button onClick={handleSubmit}>Translate</button>
+      <button onClick={handleSubmit}>
+        {isLoading ? <ClipLoader color="#ffffff" size={15} /> : "Translate"}
+      </button>
       <h3>Translation</h3>
 
       <ul>{formattedContent}</ul>
