@@ -35,6 +35,11 @@ textarea {
   color: #2e3d36;
 }
 
+textarea,
+ul {
+  transition: all 0.3s ease-out;
+}
+
 /* ------------------------------------- */
 /* Button Style */
 /* ------------------------------------- */
@@ -113,4 +118,8 @@ li:last-child {
   font-size: 14px;
   cursor: pointer;
   color: #2e3d36;
+}
+
+.language-dropdown option:hover {
+  background-color: #e8f4f2;
 }
