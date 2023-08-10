@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Translator() {
   return (
     <div className="main-container">
-      <h3>Welcome to the Future of Translations</h3>
+      <h3>AI Assisted Translation</h3>
 
       <p
         style={{
@@ -27,7 +27,7 @@ export default function Translator() {
       <hr style={{ margin: "2rem 0", width: "70%" }} />
 
       <Link to="/translate" style={{ textDecoration: "none" }}>
-        <button>Try OpenAI Translator Now</button>
+        <button>Try OpenAI Translation Now!</button>
       </Link>
 
       <footer style={{ marginTop: "2rem", textAlign: "center" }}>
