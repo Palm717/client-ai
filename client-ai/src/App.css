@@ -3,8 +3,9 @@
 /* ------------------------------------- */
 body {
   font-family: "Arial", sans-serif;
-  background-color: #a7bcb9;
-  color: #2e3d36;
+  background: linear-gradient(135deg, #1f534b 0%, #363333 60%);
+  line-height: 1.5;
+  color: #8b9992;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -53,25 +54,25 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #445d79;
+}
+
+button:active {
+  transform: translateY(2px); /* Button feels clickable */
 }
 
 /* ------------------------------------- */
 /* Translated Text Container */
 /* ------------------------------------- */
+h3,
 h4 {
   text-align: center;
-  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   color: #e9a07a;
-}
-
-h3 {
-  text-align: center;
-  margin-top: 2rem;
-  color: #a8420b;
 }
 
 ul {
@@ -109,6 +110,7 @@ li:last-child {
   margin-bottom: 20px;
   background-color: #f8f8f8;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+
   color: #2e3d36;
 }
 
@@ -122,4 +124,51 @@ li:last-child {
 
 .language-dropdown option:hover {
   background-color: #e8f4f2;
+}
+
+/* ------------------------------------- */
+/* Language HomePage */
+/* ------------------------------------- */
+
+.lang-page-style {
+  padding: 1rem;
+  list-style-type: none;
+}
+
+.lang-list-item::before {
+  content: "\2713";
+  display: inline-block;
+  margin-right: 15px;
+  color: #5dacbd;
+  font-weight: bold;
+}
+
+.lang-list-item:hover {
+  background-color: #e8f4f2;
+  transition: all 0.3s ease;
+}
+
+li {
+  transition: all 0.3s ease-out;
+}
+
+li:hover {
+  background-color: #e5f2f1;
+}
+
+/* ------------------------------------- */
+/* Homepage Link */
+/* ------------------------------------- */
+
+.homepage-link {
+  display: block;
+  margin-bottom: 20px;
+  color: #5dacbd;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.homepage-link:hover {
+  color: #0056b3;
 }

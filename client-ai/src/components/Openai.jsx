@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import { ClipLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 function formatTranslatedText(text) {
   const lines = text.split("\n"); // Split by newline to handle multi-line responses
@@ -65,6 +66,9 @@ export default function Openai() {
   const formattedContent = formatTranslatedText(translatedText);
   return (
     <>
+      <Link to="/" className="homepage-link">
+        Home
+      </Link>
       <h3>Pick a language for translation</h3>
       <select
         multiple={true}

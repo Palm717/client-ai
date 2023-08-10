@@ -1,13 +1,18 @@
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Translator from "./pages/Translator";
 import Openai from "./components/Openai";
+import "./App.css";
 
 function App() {
   return (
-    <>
-      <div className="main-container">
-        <Openai />
-      </div>
-    </>
+    <Router>
+      <main className="main-container">
+        <Routes>
+          <Route path="/" element={<Translator />} />
+          <Route path="/translate" element={<Openai />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
 
