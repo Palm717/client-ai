@@ -37,17 +37,21 @@
   }
 }
 
+/* ------------------------------------- */
 /* Main Container */
+/* ------------------------------------- */
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f4f4f9;
+  background-color: #a7bcb9;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Textarea styling */
+/* ------------------------------------- */
+/* Textarea Style */
+/* ------------------------------------- */
 textarea {
   width: 400px;
   padding: 10px;
@@ -59,13 +63,15 @@ textarea {
   margin-bottom: 10px;
 }
 
-/* Button styling */
+/* ------------------------------------- */
+/* Button Style */
+/* ------------------------------------- */
 button {
   width: 400px;
   padding: 10px 0;
   border: none;
   border-radius: 8px;
-  background-color: #007bff;
+  background-color: #5dacbd;
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -76,17 +82,29 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Translated text container */
+/* ------------------------------------- */
+/* Translated Text Container */
+/* ------------------------------------- */
 h2 {
-  margin-top: 20px;
-  color: #333;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-p {
-  width: 400px;
-  padding: 10px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  color: #333;
+ul {
+  width: 80%;
+  margin: 1rem auto;
+  background: #f7f7f7;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 1rem;
+}
+
+li:last-child {
+  border-bottom: none;
 }
