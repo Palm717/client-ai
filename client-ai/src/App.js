@@ -4,8 +4,7 @@ import Openai from "./components/Openai";
 function App() {
   return (
     <>
-      <h2 style={{ textAlign: "center" }}>Translator</h2>
-      <div className="App">
+      <div className="main-container">
         <Openai />
       </div>
     </>

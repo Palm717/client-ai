@@ -19,13 +19,24 @@ function formatTranslatedText(text) {
 }
 
 export default function Openai() {
+  const supportedLanguages = [
+    "Spanish",
+    "French",
+    "German",
+    "Italian",
+    "Japanese",
+    "Chinese",
+    "Arabic",
+  ];
   const [content, setContent] = useState("");
   const [translatedText, setTranslatedText] = useState("");
+  const [selectedLanguage, setSelectedLanguage] = useState([]);
 
   const handleSubmit = async () => {
     try {
       const response = await axios.post("http://localhost:5000/translate", {
         content,
+        language: selectedLanguage,
       });
       setTranslatedText(response.data.translatedText);
     } catch (err) {
@@ -33,9 +44,30 @@ export default function Openai() {
     }
   };
 
+  const handleLanguageChange = (e) => {
+    const selectedOptions = Array.from(e.target.selectedOptions).map(
+      (opt) => opt.value
+    );
+    setSelectedLanguage(selectedOptions);
+  };
+
   const formattedContent = formatTranslatedText(translatedText);
   return (
     <>
+      <h3>Pick a language for translation</h3>
+      <select
+        multiple={true}
+        value={selectedLanguage}
+        onChange={handleLanguageChange}
+        className="language-dropdown"
+      >
+        {supportedLanguages.map((lang) => (
+          <option key={lang} value={lang}>
+            {lang}
+          </option>
+        ))}
+      </select>
+      <br />
       <textarea
         value={content}
         onChange={(e) => setContent(e.target.value)}
@@ -44,8 +76,10 @@ export default function Openai() {
         placeholder="Enter text to translate"
       />
       <br />
+
       <button onClick={handleSubmit}>Translate</button>
-      <h2>Translated Text:</h2>
+      <h3>Translation</h3>
+
       <ul>{formattedContent}</ul>
     </>
   );
