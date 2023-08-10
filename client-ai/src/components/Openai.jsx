@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function formatTranslatedText(text) {
@@ -19,18 +19,24 @@ function formatTranslatedText(text) {
 }
 
 export default function Openai() {
-  const supportedLanguages = [
-    "Spanish",
-    "French",
-    "German",
-    "Italian",
-    "Japanese",
-    "Chinese",
-    "Arabic",
-  ];
+  const [supportedLanguages, setSupportedLanguages] = useState([]);
   const [content, setContent] = useState("");
   const [translatedText, setTranslatedText] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState([]);
+
+  useEffect(() => {
+    const fetchLanguages = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/language");
+        setSupportedLanguages(response.data);
+        console.log(response.data);
+      } catch (err) {
+        console.error("Error fetching languages:", err.message);
+      }
+    };
+
+    fetchLanguages();
+  }, []);
 
   const handleSubmit = async () => {
     try {
@@ -62,8 +68,8 @@ export default function Openai() {
         className="language-dropdown"
       >
         {supportedLanguages.map((lang) => (
-          <option key={lang} value={lang}>
-            {lang}
+          <option key={lang.name} value={lang.name}>
+            {lang.name}
           </option>
         ))}
       </select>
